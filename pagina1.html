@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchbook Style Home</title>
+    <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f9f7f1;
+            background-image: linear-gradient(white, white 49px, #d4d4d4 50px);
+            background-size: 100% 50px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 2px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 1px 1px 0px #000;
+        }
+
+        /* Button Styles */
+        .pencil-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 2px dashed #333;
+            background-color: transparent;
+            font-size: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 2px 2px 0px #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pencil-button:hover {
+            background-color: #f1f1f1;
+            box-shadow: 4px 4px 0px #333;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #333;
+            background-color: #fff;
+            box-shadow: 5px 5px 0px #333;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            text-align: justify;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
+            border-top: 2px solid #333;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Benvenute nel quizzonee!!!!<br>Volete vedere gli alpaca? bhe SOLO se ci conoscete abbastanza bene ;)</h1>
+    </header>
+    <br>
+    <div class="content">
+        <p>Bhe dato che scorsa volta avete perso la sfida vi vogliamo dare una seconda possibilità, abbiamo preparato un piccolo test su quanto ne sapete su di noi, 
+            MA siamo gentili vi daremo la possibilià di non rischiare e andare direttamente dagl'alpaca senza fare il quiz, vi bastare scegliere qua sotto se fare o meno il quiz, se scegliete di "No" andremo vedere gli alpaca senza neanche fiatare!<br>
+            quindi volete fare il quiz?</p>
+        <a href="#" class="pencil-button" id="yesButton">Si</a>
+        <a href="#" class="pencil-button" id="noButton" >No</a>
+    </div>
+
+    <script>
+        const moveNoButton = () => {
+            var x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            var y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        };
+
+        yesButton.addEventListener('click', () => {
+            window.location.assign('yes.html'); // Reindirizza a yes.html
+        });
+
+        noButton.addEventListener('click', moveNoButton);
+        noButton.addEventListener('mouseenter', moveNoButton);
+
+        loadQuestion();
+    </script>
+</body>
+
+
+</html>

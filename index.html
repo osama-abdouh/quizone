@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketchbook Style Home</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f9f7f1;
+            background-image: linear-gradient(white, white 49px, #d4d4d4 50px);
+            background-size: 100% 50px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 1px 1px 0px #000;
+            margin-bottom: 20px;
+            text-align: center;
+            white-space: nowrap; /* Impedisce al testo di andare a capo */        }
+
+        /* Button Styles */
+        .play-button {
+            position: relative;
+            width: 100px;
+            aspect-ratio: 1;
+            background-color: transparent;
+            border: 2px dashed #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px #333;
+            transition: transform 0.5s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 4px 4px 0px #333;
+        }
+
+        .play-button::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 30px solid #333;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            position: absolute;
+            transform: translateX(5px);
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #f9f7f1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            backface-visibility: hidden;
+        }
+
+        .flip-container {
+            perspective: 1000px;
+        }
+
+        .flipper {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: none;
+        }
+
+        .flipper.flip {
+            transform: none;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+    </style>
+    <script>
+        function flipPage() {
+            document.querySelector('.flipper').classList.add('flip');
+            setTimeout(() => {
+                window.location.href = 'pagina1.html';
+            }, 0); // Match the duration of the flip animation
+        }
+    </script>
+</head>
+<body>
+    <div class="flip-container">
+        <div class="flipper">
+            <div class="page front">
+                <h1>Eii, ma cosa ci fate voi qui?<br>Vabbè già che ci siete cliccate qua sotto!!</h1>
+                <button class="play-button" onclick="flipPage()"></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
